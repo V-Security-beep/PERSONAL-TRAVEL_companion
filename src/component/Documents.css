@@ -1,0 +1,104 @@
+.documents-container {
+    background: url("../assets/document_bg.png") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .upload-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-label {
+    background: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-label input {
+    display: none;
+  }
+  
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .documents-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 70%;
+    justify-content: center;
+  }
+  
+  .document-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+  }
+  
+  .doc-title {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .doc-category {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .doc-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .doc-actions a,
+  .doc-actions button {
+    font-size: 14px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  .doc-actions button {
+    color: red;
+  }
+/* 📱 Mobile Layout */
+@media (max-width: 600px) {
+    .upload-section {
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+    }
+  
+    .documents-list {
+      width: 100%;
+    }
+  
+    .document-card {
+      width: 100%;
+    }
+  }
+  
