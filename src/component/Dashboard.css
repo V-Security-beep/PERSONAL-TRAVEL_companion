@@ -1,0 +1,212 @@
+.dashboard {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  background: url('../assets/image.png') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Add Styling for "Documents" Button */
+.tab {
+  margin: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: #9370db; /* Purple color */
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background: #b19cd9; /* Lighter purple on hover */
+  transform: scale(1.1);
+}
+
+.tab.active {
+  background: #6a5acd; /* Slightly darker purple */
+}
+
+/* Left Side */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #213547;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.tab {
+  margin: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: #9370db; /* Purple color */
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background: #b19cd9; /* Lighter purple on hover */
+  transform: scale(1.1);
+}
+
+.tab.active {
+  background: #6a5acd; /* Slightly darker purple */
+}
+
+/* Trips Section */
+.dashboard-content {
+  text-align: center;
+  width: 65%;
+}
+
+.trip-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto;
+}
+
+.trip-item {
+  background: white;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trip-item h3 {
+  font-size: 1.5rem;
+  color: #213547;
+}
+
+.trip-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Right Side - Added Trips */
+.added-trips-container {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.added-trips-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.added-trips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.added-trip-item {
+  background: #e3e3e3;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.trip-info {
+  text-align: left;
+}
+
+/* Three-Dot Menu */
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.menu-container:hover .menu-dropdown {
+  display: block;
+}
+
+.menu-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-dropdown button:hover {
+  background: #f0f0f0;
+}
+
+/* 📱 Mobile-friendly Dashboard */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .dashboard-content {
+    width: 100%;
+  }
+
+  .added-trips-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+}

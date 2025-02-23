@@ -1,0 +1,115 @@
+/* Background Video */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensures the video stays behind the content */
+}
+
+/* Page Container */
+.login-page {
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; /* Prevents any overflow issues */
+  background: none; /* Ensures no conflicting background styles */
+}
+
+/* Login Box */
+.login-container {
+  width: 400px;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensures the login box is above the video */
+}
+
+/* Text Styling */
+.login-container h2 {
+  font-size: 1.5rem;
+  color: #213547;
+}
+
+.login-container p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #213547;
+}
+
+.login-form input[type="text"],
+.login-form input[type="date"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.8); /* Transparent input fields */
+  color: #000; /* Black text for input */
+  outline: none;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="date"]:focus {
+  border-color: #646cff;
+}
+
+/* Button Styling */
+.login-form button {
+  padding: 0.75rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Custom Message */
+.trip-message {
+  font-size: 0.9rem;
+  color: #213547;
+  margin-bottom: 1rem;
+}
+/* 📱 Adjust login box for small screens */
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

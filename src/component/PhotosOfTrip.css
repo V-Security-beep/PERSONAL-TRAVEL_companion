@@ -1,0 +1,232 @@
+/* General Styling */
+.photos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background: url("../assets/photo.png") no-repeat center center/cover;
+    position: relative;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Overlay to improve readability */
+  .photos-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+  }
+  
+  /* Page Title */
+  h1 {
+    font-size: 2.8rem;
+    color: hsl(0, 0%, 4%);
+    font-weight: bold;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    z-index: 2;
+  }
+  
+  /* Main Content Layout */
+  .main-content {
+    display: flex;
+    gap: 25px;
+    width: 85%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Folder Section */
+  .folder-section {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .folder-section:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Create Folder Button */
+  .create-folder-btn {
+    background: #e63946;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .create-folder-btn:hover {
+    background: #b71c1c;
+  }
+  
+  /* Folder List */
+  .folder-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .folder-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 8px 0;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .folder-item:hover {
+    background: #01010180;
+    transform: scale(1.03);
+  }
+  
+  /* Delete Folder Button */
+  .delete-folder-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 1.4rem;
+  }
+  
+  /* Photo Gallery */
+  .photo-gallery-container {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .upload-btn {
+    margin-bottom: 20px;
+    padding: 12px;
+    background: #1d3557;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .upload-btn:hover {
+    background: #0a192f;
+  }
+  
+  /* Grid Layout for Photos */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding-top: 20px;
+  }
+  
+  .photo-card {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+  }
+  
+  .photo-card:hover {
+    transform: scale(1.1);
+  }
+  
+  .trip-photo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  /* Floating Action Button (FAB) */
+  .fab-upload {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: #e63946;
+    color: white;
+    padding: 16px 20px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .fab-upload:hover {
+    background: #b71c1c;
+    transform: scale(1.1);
+  }
+  
+  /* Sidebar Navigation */
+  .back-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Folder Selection Message */
+  .select-folder-msg {
+    font-size: 1.3rem;
+    color: hsl(0, 0%, 2%);
+    margin-top: 10px;
+    font-weight: bold;
+  }
+/* 📱 Responsive Photo Grid */
+@media (max-width: 768px) {
+    .photo-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  
+    .photo-card {
+      width: 100%;
+    }
+  }
+   
