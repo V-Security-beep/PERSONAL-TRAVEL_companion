@@ -3,7 +3,6 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import "./BudgetPlanner.css";
 
-// Register Chart.js elements
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const BudgetPlanner = () => {
@@ -11,13 +10,22 @@ const BudgetPlanner = () => {
     return JSON.parse(localStorage.getItem("expenses")) || [];
   });
   const [newExpense, setNewExpense] = useState({ category: "Food", amount: "" });
+  const [exchangeRate, setExchangeRate] = useState({});
+  const [currency, setCurrency] = useState("EUR"); // Default to EUR
+  const API_KEY = "YOUR_API_KEY"; // Replace with your actual API key
 
-  // Save expenses to LocalStorage
+  // Fetch exchange rates from API
+  useEffect(() => {
+    fetch(`https://v6.exchangerate-api.com/v6/c809122a5dba954076481d29/latest/USD`)
+      .then((response) => response.json())
+      .then((data) => setExchangeRate(data.conversion_rates))
+      .catch((error) => console.error("Error fetching exchange rate:", error));
+  }, []);
+
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
 
-  // Add a new expense
   const addExpense = () => {
     if (newExpense.amount.trim() !== "" && !isNaN(newExpense.amount)) {
       setExpenses([...expenses, { id: Date.now(), ...newExpense, amount: parseFloat(newExpense.amount) }]);
@@ -25,15 +33,14 @@ const BudgetPlanner = () => {
     }
   };
 
-  // Delete an expense
   const deleteExpense = (id) => {
     setExpenses(expenses.filter((expense) => expense.id !== id));
   };
 
-  // Calculate total expenses
-  const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+  const totalExpensesUSD = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+  const convertedAmount = exchangeRate[currency] ? (totalExpensesUSD * exchangeRate[currency]).toFixed(2) : "Loading...";
 
-  // Prepare data for Chart.js
+  // Prepare data for Pie Chart
   const expenseData = {
     labels: ["Food", "Transport", "Hotels", "Activities", "Other"],
     datasets: [
@@ -64,8 +71,8 @@ const BudgetPlanner = () => {
           <option value="Other">Other</option>
         </select>
         <input
-          type="text"
-          placeholder="Enter Amount"
+          type="number"
+          placeholder="Enter Amount (USD)"
           value={newExpense.amount}
           onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
         />
@@ -73,7 +80,20 @@ const BudgetPlanner = () => {
       </div>
 
       {/* Total Expenses */}
-      <h2>Total: ${totalExpenses.toFixed(2)}</h2>
+      <h2>Total: ${totalExpensesUSD.toFixed(2)} USD</h2>
+
+      {/* Currency Converter */}
+      <div className="currency-converter">
+        <h3>Convert Budget to:</h3>
+        <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+          <option value="EUR">Euro (EUR)</option>
+          <option value="INR">Indian Rupee (INR)</option>
+          <option value="GBP">British Pound (GBP)</option>
+          <option value="JPY">Japanese Yen (JPY)</option>
+          <option value="AUD">Australian Dollar (AUD)</option>
+        </select>
+        <h3>Converted Amount: {convertedAmount} {currency}</h3>
+      </div>
 
       {/* Expense List */}
       <ul className="expense-list">
