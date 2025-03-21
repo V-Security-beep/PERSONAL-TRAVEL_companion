@@ -18,25 +18,14 @@ Local Storage for Data Persistence
 GitHub Pages for Deployment
 📂 Folder Structure
 
-📦 Personal-Travel-Companion
-│── 📂 src
-│   ├── 📂 assets (Images & background)
-│   ├── 📂 components (Reusable UI Components)
-│   ├── 📂 pages (Dashboard, Add Trip, Photos, Documents, etc.)
-│   ├── 📜 App.jsx
-│   ├── 📜 index.jsx
-│   ├── 📜 styles.css
-│── 📜 .gitignore
-│── 📜 vite.config.js
-│── 📜 README.md
-│── 📜 package.json
-│── 📜 package-lock.json
-🚀 Installation & Setup
+
+
 1️⃣ Clone the Repository
 
 
 git clone https://github.com/V-Security-beep/PERSONAL-TRAVEL_companion.git
 cd PERSONAL-TRAVEL_companion
+
 2️⃣ Install Dependencies
 
 
@@ -50,7 +39,7 @@ npm run dev
 📤 Deployment (GitHub Pages)
 Steps to deploy the project on GitHub Pages:
 
-Update vite.config.js (Set the base URL to match GitHub repository)
+
 
 export default defineConfig({
   plugins: [react()],
@@ -60,13 +49,13 @@ Build and Deploy
 
 npm run build
 npm run deploy
-📌 Live Project: View on GitHub Pages
+ Live Project: View on GitHub Pages
 
 🔐 Security & Privacy
 Document Page: Password-protected (12345)
 Local Storage: Saves user data but does not share externally.
 🚀 Future Enhancements
-✅ AI Travel Chatbot (OpenAI API integration)
+
 ✅ Cloud Storage for Documents
 ✅ Weather & Flight API Integration
 ✅ User Authentication (Firebase/Auth0)
